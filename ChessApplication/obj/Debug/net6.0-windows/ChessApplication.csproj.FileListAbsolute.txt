@@ -1,0 +1,17 @@
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\bin\Debug\net6.0-windows\ChessApplication.exe
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\bin\Debug\net6.0-windows\ChessApplication.deps.json
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\bin\Debug\net6.0-windows\ChessApplication.runtimeconfig.json
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\bin\Debug\net6.0-windows\ChessApplication.dll
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\bin\Debug\net6.0-windows\ChessApplication.pdb
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.csproj.AssemblyReference.cache
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.csproj.GenerateResource.cache
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.AssemblyInfoInputs.cache
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.AssemblyInfo.cs
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.csproj.CoreCompileInputs.cache
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.dll
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\refint\ChessApplication.dll
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.pdb
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.genruntimeconfig.cache
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ref\ChessApplication.dll
+C:\Users\HP Sauce\source\repos\ChessApplication\ChessApplication\obj\Debug\net6.0-windows\ChessApplication.ChessGame.MainMenu.resources
