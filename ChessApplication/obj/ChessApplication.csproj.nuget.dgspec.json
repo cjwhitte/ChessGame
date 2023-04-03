@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP Sauce\\source\\repos\\ChessApplication\\ChessApplication\\ChessApplication.csproj": {}
+    "C:\\Users\\HP Sauce\\Documents\\GitHub\\ChessGame\\ChessApplication\\ChessApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP Sauce\\source\\repos\\ChessApplication\\ChessApplication\\ChessApplication.csproj": {
+    "C:\\Users\\HP Sauce\\Documents\\GitHub\\ChessGame\\ChessApplication\\ChessApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP Sauce\\source\\repos\\ChessApplication\\ChessApplication\\ChessApplication.csproj",
+        "projectUniqueName": "C:\\Users\\HP Sauce\\Documents\\GitHub\\ChessGame\\ChessApplication\\ChessApplication.csproj",
         "projectName": "ChessApplication",
-        "projectPath": "C:\\Users\\HP Sauce\\source\\repos\\ChessApplication\\ChessApplication\\ChessApplication.csproj",
+        "projectPath": "C:\\Users\\HP Sauce\\Documents\\GitHub\\ChessGame\\ChessApplication\\ChessApplication.csproj",
         "packagesPath": "C:\\Users\\HP Sauce\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP Sauce\\source\\repos\\ChessApplication\\ChessApplication\\obj\\",
+        "outputPath": "C:\\Users\\HP Sauce\\Documents\\GitHub\\ChessGame\\ChessApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
