@@ -9,7 +9,7 @@ namespace ChessApplication.ChessGame.Forms
         public formBoard()
         {
             InitializeComponent();
-            board = new Board(this);
+            board = new Board(this.flowLayoutPanel);
         }
 
         private int xValue = 0;
@@ -17,8 +17,8 @@ namespace ChessApplication.ChessGame.Forms
 
         private void UpButton_Click(object sender, EventArgs e)
         {
-            yValue -= 50;
-            if(yValue < 0) yValue = 0;
+            yValue += 50;
+            if (yValue > 350) yValue = 350;
             Compare();
 
         }
@@ -39,8 +39,8 @@ namespace ChessApplication.ChessGame.Forms
 
         private void DownButton_Click(object sender, EventArgs e)
         {
-            yValue += 50;
-            if (yValue > 350) yValue = 350;
+            yValue -= 50;
+            if (yValue < 0) yValue = 0;
             Compare();
         }
 
@@ -49,13 +49,5 @@ namespace ChessApplication.ChessGame.Forms
 
             board.CompareSquares(xValue, yValue, LabelX, LabelY);
         }
-
-
-
-
-        // LabelX.Text = xValue.ToString();
-        // LabelY.Text = yValue.ToString();
-
-
     }
 }

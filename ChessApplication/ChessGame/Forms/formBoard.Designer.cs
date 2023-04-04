@@ -34,6 +34,7 @@
             LeftButton = new Button();
             RightButton = new Button();
             DownButton = new Button();
+            flowLayoutPanel = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // LabelX
@@ -94,11 +95,21 @@
             DownButton.UseVisualStyleBackColor = true;
             DownButton.Click += DownButton_Click;
             // 
+            // flowLayoutPanel
+            // 
+            flowLayoutPanel.Dock = DockStyle.Left;
+            flowLayoutPanel.Location = new Point(0, 0);
+            flowLayoutPanel.Margin = new Padding(0);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Size = new Size(400, 450);
+            flowLayoutPanel.TabIndex = 10;
+            // 
             // formBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(flowLayoutPanel);
             Controls.Add(DownButton);
             Controls.Add(RightButton);
             Controls.Add(LeftButton);
@@ -122,5 +133,6 @@
         private Button LeftButton;
         private Button RightButton;
         private Button DownButton;
+        private FlowLayoutPanel flowLayoutPanel;
     }
 }

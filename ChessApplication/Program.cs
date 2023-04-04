@@ -1,4 +1,3 @@
-using ChessApplication.ChessGame;
 using ChessApplication.ChessGame.Forms;
 
 namespace ChessApplication
