@@ -5,6 +5,7 @@ namespace ChessApplication.ChessGame.ChessBoard
 {
     internal class Square
     {
+        public Point Point { get; set; }
         public Location Location { get; set; }
 
         public Colours Colour { get; set; }

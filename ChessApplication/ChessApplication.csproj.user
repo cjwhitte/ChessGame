@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="ChessGame\Forms\MainMenu.cs">
+    <Compile Update="ChessGame\Forms\formBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ChessGame\Forms\formMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

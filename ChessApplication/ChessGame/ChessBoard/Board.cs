@@ -1,9 +1,12 @@
 ﻿using ChessApplication.ChessGame.Structs;
+using ChessApplication.ChessGame.Forms;
+
 
 namespace ChessApplication.ChessGame.ChessBoard
 {
     internal class Board
     {
+        // Change list to array of squares
         public List<List<Square>> Squares;
         public Board()
         {
@@ -12,9 +15,12 @@ namespace ChessApplication.ChessGame.ChessBoard
         }
         public void CreateBoard()
         {
+            var FormBoard = new formBoard();
+            FormBoard.Show();
             InstantiateSquares();
-            // Render Squares
+            FormBoard.RenderSquares();
         }
+
         #region Instantiate Squares
         private void InstantiateSquares()
         {
@@ -66,7 +72,7 @@ namespace ChessApplication.ChessGame.ChessBoard
 
         #endregion
 
-
+    
 
     }
 }

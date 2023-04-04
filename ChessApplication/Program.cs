@@ -8,7 +8,7 @@ namespace ChessApplication
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainMenu());
+            Application.Run(new formMainMenu());
         }
     }
 }
