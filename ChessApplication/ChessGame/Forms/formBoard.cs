@@ -1,62 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ChessApplication.ChessGame.ChessBoard;
 
 namespace ChessApplication.ChessGame.Forms
 {
     public partial class formBoard : Form
     {
+        public int squareSize = 40;
+        Board board;
         public formBoard()
         {
             InitializeComponent();
+            board = new Board(this);
         }
 
-        #region Render Squares
+        private int xValue, yValue;
 
-        private Panel[,] _chessBoardPanels;
-
-        public void RenderSquares()
+        private void TextBoxX_TextChanged(object sender, EventArgs e)
         {
-            const int squareSize = 40;
-            const int gridSize = 8;
-
-            var ColourWhite = Color.White;
-            var ColourBlack = Color.Black;
-
-            _chessBoardPanels = new Panel[gridSize, gridSize];
-
-            for(int i = 0; i < gridSize; i++)
-            {
-                for(int j = 0; j < gridSize; j++)
-                {
-                    var newPanel = new Panel
-                    {
-                        Size = new Size(squareSize, squareSize),
-                        Location = new Point(squareSize * i, squareSize * j)
-                    };
-
-                    Controls.Add(newPanel);
-
-                    _chessBoardPanels[i, j] = newPanel;
-
-                    if (i % 2 == 0)
-                        newPanel.BackColor = j % 2 != 0 ? ColourWhite : ColourBlack;
-                    else
-                        newPanel.BackColor = j % 2 != 0 ? ColourBlack : ColourWhite;
-
-
-                }
-            }
+            Int32.TryParse(TextBoxX.Text, out xValue);
         }
 
+        private void TextBoxY_TextChanged(object sender, EventArgs e)
+        {
+            Int32.TryParse(TextBoxY.Text, out yValue);
+        }
 
-        #endregion
+        private void SelectButton_Click(object sender, EventArgs e)
+        {
+            LabelX.Text = xValue.ToString();
+            LabelY.Text = yValue.ToString();
 
+            board.CompareSquares(xValue, yValue, LabelX, LabelY);
+        }
     }
 }

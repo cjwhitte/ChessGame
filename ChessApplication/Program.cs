@@ -1,4 +1,5 @@
 using ChessApplication.ChessGame;
+using ChessApplication.ChessGame.Forms;
 
 namespace ChessApplication
 {
@@ -8,7 +9,7 @@ namespace ChessApplication
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new formMainMenu());
+            Application.Run(new formBoard());
         }
     }
 }

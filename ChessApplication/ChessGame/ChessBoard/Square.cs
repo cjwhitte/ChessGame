@@ -7,11 +7,10 @@ namespace ChessApplication.ChessGame.ChessBoard
     {
         public Point Point { get; set; }
         public Location Location { get; set; }
-
         public Colours Colour { get; set; }
         public int SquareNumber { get; set; }
 
 
-        public Square(Location location, int squareNumber) { this.Location = location; this.SquareNumber = squareNumber; }
+        public Square(Location location, Point point, int squareNumber) { this.Location = location; this.SquareNumber = squareNumber; this.Point = point; }
     }
 }
