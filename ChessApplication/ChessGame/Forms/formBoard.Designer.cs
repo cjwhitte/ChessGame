@@ -28,43 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TextBoxY = new TextBox();
-            TextBoxX = new TextBox();
-            SelectButton = new Button();
             LabelX = new Label();
             LabelY = new Label();
+            UpButton = new Button();
+            LeftButton = new Button();
+            RightButton = new Button();
+            DownButton = new Button();
             SuspendLayout();
-            // 
-            // TextBoxY
-            // 
-            TextBoxY.Location = new Point(688, 134);
-            TextBoxY.Name = "TextBoxY";
-            TextBoxY.Size = new Size(100, 23);
-            TextBoxY.TabIndex = 1;
-            TextBoxY.TextChanged += TextBoxY_TextChanged;
-            // 
-            // TextBoxX
-            // 
-            TextBoxX.Location = new Point(582, 134);
-            TextBoxX.Name = "TextBoxX";
-            TextBoxX.Size = new Size(100, 23);
-            TextBoxX.TabIndex = 2;
-            TextBoxX.TextChanged += TextBoxX_TextChanged;
-            // 
-            // SelectButton
-            // 
-            SelectButton.Location = new Point(661, 175);
-            SelectButton.Name = "SelectButton";
-            SelectButton.Size = new Size(75, 23);
-            SelectButton.TabIndex = 3;
-            SelectButton.Text = "Select";
-            SelectButton.UseVisualStyleBackColor = true;
-            SelectButton.Click += SelectButton_Click;
             // 
             // LabelX
             // 
             LabelX.AutoSize = true;
-            LabelX.Location = new Point(589, 106);
+            LabelX.Location = new Point(639, 111);
             LabelX.Name = "LabelX";
             LabelX.Size = new Size(45, 15);
             LabelX.TabIndex = 4;
@@ -79,16 +54,57 @@
             LabelY.TabIndex = 5;
             LabelY.Text = "Y Value";
             // 
+            // UpButton
+            // 
+            UpButton.Location = new Point(660, 151);
+            UpButton.Name = "UpButton";
+            UpButton.Size = new Size(75, 23);
+            UpButton.TabIndex = 6;
+            UpButton.Text = "Up";
+            UpButton.UseVisualStyleBackColor = true;
+            UpButton.Click += UpButton_Click;
+            // 
+            // LeftButton
+            // 
+            LeftButton.Location = new Point(624, 192);
+            LeftButton.Name = "LeftButton";
+            LeftButton.Size = new Size(75, 23);
+            LeftButton.TabIndex = 7;
+            LeftButton.Text = "Left";
+            LeftButton.UseVisualStyleBackColor = true;
+            LeftButton.Click += LeftButton_Click;
+            // 
+            // RightButton
+            // 
+            RightButton.Location = new Point(705, 192);
+            RightButton.Name = "RightButton";
+            RightButton.Size = new Size(75, 23);
+            RightButton.TabIndex = 8;
+            RightButton.Text = "Right";
+            RightButton.UseVisualStyleBackColor = true;
+            RightButton.Click += RightButton_Click;
+            // 
+            // DownButton
+            // 
+            DownButton.Location = new Point(660, 233);
+            DownButton.Name = "DownButton";
+            DownButton.Size = new Size(75, 23);
+            DownButton.TabIndex = 9;
+            DownButton.Text = "Down";
+            DownButton.UseVisualStyleBackColor = true;
+            DownButton.Click += DownButton_Click;
+            // 
             // formBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(DownButton);
+            Controls.Add(RightButton);
+            Controls.Add(LeftButton);
+            Controls.Add(UpButton);
             Controls.Add(LabelY);
             Controls.Add(LabelX);
-            Controls.Add(SelectButton);
-            Controls.Add(TextBoxX);
-            Controls.Add(TextBoxY);
             Name = "formBoard";
             Text = "formBoard";
             ResumeLayout(false);
@@ -102,5 +118,9 @@
         private Button SelectButton;
         private Label LabelX;
         private Label LabelY;
+        private Button UpButton;
+        private Button LeftButton;
+        private Button RightButton;
+        private Button DownButton;
     }
 }

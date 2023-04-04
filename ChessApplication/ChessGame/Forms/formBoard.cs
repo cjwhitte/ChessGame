@@ -12,24 +12,46 @@ namespace ChessApplication.ChessGame.Forms
             board = new Board(this);
         }
 
-        private int xValue, yValue;
+        private int xValue = 0;
+        private int yValue = 0;
 
-        private void TextBoxX_TextChanged(object sender, EventArgs e)
+        private void UpButton_Click(object sender, EventArgs e)
         {
-            Int32.TryParse(TextBoxX.Text, out xValue);
+            yValue -= 50;
+            Compare();
+
         }
 
-        private void TextBoxY_TextChanged(object sender, EventArgs e)
+        private void LeftButton_Click(object sender, EventArgs e)
         {
-            Int32.TryParse(TextBoxY.Text, out yValue);
+            xValue -= 50;
+            Compare();
         }
 
-        private void SelectButton_Click(object sender, EventArgs e)
+        private void RightButton_Click(object sender, EventArgs e)
         {
-            LabelX.Text = xValue.ToString();
-            LabelY.Text = yValue.ToString();
+            xValue += 50;
+            Compare();
+        }
+
+        private void DownButton_Click(object sender, EventArgs e)
+        {
+            yValue += 50;
+            Compare();
+        }
+
+        private void Compare()
+        {
 
             board.CompareSquares(xValue, yValue, LabelX, LabelY);
         }
+
+
+
+
+        // LabelX.Text = xValue.ToString();
+        // LabelY.Text = yValue.ToString();
+
+
     }
 }
