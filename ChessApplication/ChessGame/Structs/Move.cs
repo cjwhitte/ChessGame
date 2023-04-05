@@ -2,14 +2,14 @@
 {
     public struct Move
     {
-        public Move(Location startingLocation, Location endingLocation)
+        public Move(string startingLocation)
         {
             this.startingLocation = startingLocation;
-            this.endingLocation = endingLocation;
+            this.endingLocation = null;
         }
 
-        public Location startingLocation { get; set; }
+        public string? startingLocation { get; set; }
 
-        public Location endingLocation { get; set; }
+        public string? endingLocation { get; set; }
     }
 }
