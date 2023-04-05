@@ -1,40 +1,21 @@
 ﻿using ChessApplication.ChessGame.Enums;
 using ChessApplication.ChessGame.Structs;
+using ChessApplication.ChessGame.Utilities;
 
 namespace ChessApplication.ChessGame.Pieces
 {
     internal class Piece
     {
+
         public void CreateMove(Move move, FlowLayoutPanel flow)
         {
             squares = flow;
             RemoveOldImage();
-            
+
             Move(move);
             ChooseImage();
-            // PiecePosition.Image = null;
 
         }
-
-        private void RemoveOldImage()
-        {
-            Panel? panel = GetRelativePanel();
-            foreach(Label label in panel.Controls)
-            {
-                label.Image = null;
-            }
-        }
-
-        private Panel? GetRelativePanel()
-        {
-            foreach(Panel panel in squares.Controls)
-            {
-                if (panel.Tag.ToString() == Notation)
-                    return panel;
-            }
-            return null;
-        }
-
 
         public void Move(Move move)
         {
@@ -42,6 +23,25 @@ namespace ChessApplication.ChessGame.Pieces
             Moves.Add(move);
         }
 
+        #region Removing Old Piece Image
+        private void RemoveOldImage()
+        {
+            Panel? panel = GetRelativePanel();
+            foreach (Label label in panel.Controls)
+            {
+                label.Image = null;
+            }
+        }
+        private Panel? GetRelativePanel()
+        {
+            foreach (Panel panel in squares.Controls)
+            {
+                if (panel.Tag.ToString() == Notation)
+                    return panel;
+            }
+            return null;
+        }
+        #endregion
 
         #region Change Image Types
         private void ChooseImage()

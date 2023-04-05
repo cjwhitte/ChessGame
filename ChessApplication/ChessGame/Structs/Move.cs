@@ -8,6 +8,12 @@
             this.endingLocation = null;
         }
 
+        public Move(string startingLocation, string endingLocation)
+        {
+            this.startingLocation = startingLocation;
+            this.endingLocation = endingLocation;
+        }
+
         public string? startingLocation { get; set; }
 
         public string? endingLocation { get; set; }

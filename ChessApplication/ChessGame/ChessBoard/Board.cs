@@ -232,9 +232,6 @@ namespace ChessApplication.ChessGame.ChessBoard
                 CurrentMove = new Move();
             }
         }
-
-
-        
         private Panel GetRelativePanel(Label label)
         {
             foreach (Panel panel in FlowLayoutPanel.Controls)
