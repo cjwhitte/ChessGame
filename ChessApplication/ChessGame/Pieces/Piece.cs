@@ -7,11 +7,32 @@ namespace ChessApplication.ChessGame.Pieces
     {
         public void CreateMove(Move move, FlowLayoutPanel flow)
         {
-            Move(move);
             squares = flow;
+            RemoveOldImage();
+            
+            Move(move);
             ChooseImage();
-            PiecePosition.Image = null;
+            // PiecePosition.Image = null;
 
+        }
+
+        private void RemoveOldImage()
+        {
+            Panel? panel = GetRelativePanel();
+            foreach(Label label in panel.Controls)
+            {
+                label.Image = null;
+            }
+        }
+
+        private Panel? GetRelativePanel()
+        {
+            foreach(Panel panel in squares.Controls)
+            {
+                if (panel.Tag.ToString() == Notation)
+                    return panel;
+            }
+            return null;
         }
 
 
@@ -21,14 +42,14 @@ namespace ChessApplication.ChessGame.Pieces
             Moves.Add(move);
         }
 
+
+        #region Change Image Types
         private void ChooseImage()
         {
             if (colour == Colours.White)
                 ChangeWhiteImage();
             else
                 ChangeBlackImage();
-
-
 
         }
         private void ChangeWhiteImage()
@@ -58,6 +79,9 @@ namespace ChessApplication.ChessGame.Pieces
                 }
             }
         }
+        #endregion
+
+
         private FlowLayoutPanel squares;
 
         public Label PiecePosition;

@@ -230,10 +230,7 @@ namespace ChessApplication.ChessGame.ChessBoard
                     }
                 }
                 CurrentMove = new Move();
-
             }
-
-
         }
 
 
