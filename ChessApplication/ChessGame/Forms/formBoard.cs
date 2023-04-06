@@ -8,8 +8,9 @@ namespace ChessApplication.ChessGame.Forms
         Board board;
         public formBoard()
         {
+            this.Controls.Add(label1);
             InitializeComponent();
-            board = new Board(this.flowLayoutPanel);
+            board = new Board(this.flowLayoutPanel, label1);
         }
     }
 }

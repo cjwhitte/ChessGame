@@ -29,21 +29,33 @@
         private void InitializeComponent()
         {
             flowLayoutPanel = new FlowLayoutPanel();
+            label1 = new Label();
             SuspendLayout();
             // 
             // flowLayoutPanel
             // 
-            flowLayoutPanel.Location = new Point(200, 20);
+            flowLayoutPanel.Dock = DockStyle.Right;
+            flowLayoutPanel.Location = new Point(400, 0);
             flowLayoutPanel.Margin = new Padding(0);
             flowLayoutPanel.Name = "flowLayoutPanel";
-            flowLayoutPanel.Size = new Size(400, 400);
+            flowLayoutPanel.Size = new Size(400, 450);
             flowLayoutPanel.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.Dock = DockStyle.Left;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(400, 450);
+            label1.TabIndex = 11;
+            label1.Text = "label1";
             // 
             // formBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(flowLayoutPanel);
             Name = "formBoard";
             Text = "formBoard";
@@ -56,5 +68,6 @@
         private TextBox TextBoxY;
         private Button SelectButton;
         private FlowLayoutPanel flowLayoutPanel;
+        private Label label1;
     }
 }

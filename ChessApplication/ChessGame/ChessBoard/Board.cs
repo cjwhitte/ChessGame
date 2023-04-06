@@ -8,13 +8,20 @@ namespace ChessApplication.ChessGame.ChessBoard
     internal class Board
     {
 
-        private Move CurrentMove;
+        public static Colours turn;
+
+        private Move WhiteCurrentMove;
+        private Move BlackCurrentMove;
+
+        private List<Move> WhitePossibleMoves;
+        private List<Move> BlackPossibleMoves;
 
 
         List<Piece> WhitePieces;
         List<Piece> BlackPieces;
         private FlowLayoutPanel FlowLayoutPanel;
         public Square[,] Squares;
+        private Label lab;
         private Dictionary<int, char> Notation = new Dictionary<int, char>()
             {
 
@@ -27,15 +34,13 @@ namespace ChessApplication.ChessGame.ChessBoard
                 { 7, 'g' },
                 { 8, 'h' }
             };
-        public Board(FlowLayoutPanel flowLayoutPanel)
+        public Board(FlowLayoutPanel flowLayoutPanel, Label lab)
         {
+            this.lab = lab;
             Squares = new Square[8, 8];
             FlowLayoutPanel = flowLayoutPanel;
             CreateBoard();
         }
-
-
-
         public void CreateBoard()
         {
             InstantiateSquares();
@@ -60,80 +65,103 @@ namespace ChessApplication.ChessGame.ChessBoard
 
                 string tag = panel.Tag.ToString();
 
-                Label Piece = new Label
+                Label PieceLabel = new Label
                 {
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = false,
                     Size = new Size(50, 50),
-                    Tag = panel.Tag.ToString()
+                    Tag = tag
                 };
 
-                Piece.Click += new EventHandler(Piece_Click);
 
-                #region Insert Images And Create Pieces
+                lab.Size = new Size(100, 100);
+
+                #region Create Pieces
 
                 Colours white = Colours.White;
                 Colours black = Colours.Black;
 
                 // Pawns
                 if (tag.Contains('2'))
-                    WhitePieces.Add(new Pawn(tag, Piece, white));
+                    WhitePieces.Add(new Pawn(tag, PieceLabel, white));
 
 
                 else if (tag.Contains('7'))
-                    BlackPieces.Add(new Pawn(tag, Piece, black));
+                    BlackPieces.Add(new Pawn(tag, PieceLabel, black));
 
                 // Rooks
                 else if (tag == "a1" || tag == "h1")
-                    WhitePieces.Add(new Rook(tag, Piece, white));
+                    WhitePieces.Add(new Rook(tag, PieceLabel, white));
                 else if (tag == "a8" || tag == "h8")
                 {
-                    BlackPieces.Add(new Rook(tag, Piece, black));
+                    BlackPieces.Add(new Rook(tag, PieceLabel, black));
                 }
 
                 // Bishops
                 else if (tag == "c1" || tag == "f1")
                 {
-                    WhitePieces.Add(new Bishop(tag, Piece, white));
+                    WhitePieces.Add(new Bishop(tag, PieceLabel, white));
                 }
                 else if (tag == "c8" || tag == "f8")
                 {
-                    BlackPieces.Add(new Bishop(tag, Piece, black));
+                    BlackPieces.Add(new Bishop(tag, PieceLabel, black));
                 }
 
                 // Knights
                 else if (tag == "b1" || tag == "g1")
                 {
-                    WhitePieces.Add(new Knight(tag, Piece, white));
+                    WhitePieces.Add(new Knight(tag, PieceLabel, white));
                 }
                 else if (tag == "b8" || tag == "g8")
                 {
-                    BlackPieces.Add(new Knight(tag, Piece, black));
+                    BlackPieces.Add(new Knight(tag, PieceLabel, black));
                 }
 
                 // Queens
                 else if (tag == "d1")
                 {
-                    WhitePieces.Add(new Queen(tag, Piece, white));
+                    WhitePieces.Add(new Queen(tag, PieceLabel, white));
                 }
                 else if (tag == "d8")
                 {
-                    BlackPieces.Add(new Queen(tag, Piece, black));
+                    BlackPieces.Add(new Queen(tag, PieceLabel, black));
                 }
 
                 // Kings
                 else if (tag == "e1")
                 {
-                    WhitePieces.Add(new King(tag, Piece, white));
+                    WhitePieces.Add(new King(tag, PieceLabel, white));
                 }
                 else if (tag == "e8")
                 {
-                    BlackPieces.Add(new King(tag, Piece, black));
+                    BlackPieces.Add(new King(tag, PieceLabel, black));
                 }
 
                 #endregion
 
-                panel.Controls.Add(Piece);
+                panel.Controls.Add(PieceLabel);
+
+                Piece selectedPiece = LookForPieces(panel.Tag.ToString());
+
+
+
+
+                if (selectedPiece == null)
+                {
+                    lab.Text = $"null";
+                panel.Click += new EventHandler(UnoccupiedSquare_Click);
+
+                }
+
+                else if (selectedPiece.Colour == Colours.White)
+                {
+                    panel.Click += new EventHandler(WhitePiece_Click);
+                lab.Text = $"{selectedPiece}";
+
+                }
+                else if (selectedPiece.Colour == Colours.Black)
+                    panel.Click += new EventHandler(BlackPiece_Click);
+
 
             }
         }
@@ -192,45 +220,122 @@ namespace ChessApplication.ChessGame.ChessBoard
 
         #endregion
 
-        void Piece_Click(object sender, EventArgs e)
+        void WhitePiece_Click(object sender, EventArgs e)
         {
+
             // White or Black
             Label label = sender as Label;
 
             if (label == null) return;
 
-            if (CurrentMove.startingLocation == null)
+            if (WhiteCurrentMove.startingLocation == null)
             {
-                foreach (Piece piece in WhitePieces)
-                {
-                    if (piece.Notation == label.Tag.ToString())
-                    {
-                        Panel panel = GetRelativePanel(label);
-
-                        CurrentMove = new Move(panel.Tag.ToString());
-                    }
-                }
+                Panel panel = GetRelativePanel(label);
+                lab.Text = $"{lab.Text}\n WHITE PIECE";
+                WhiteCurrentMove = new Move(panel.Tag.ToString());
+                panel.BackColor = Color.Green;
             }
 
             else
             {
-                foreach (Piece piece in WhitePieces)
+                
+                
+            }
+
+
+        }
+        void BlackPiece_Click(object sender, EventArgs e)
+        {
+            #region Error Handling
+            // White or Black
+            Label label = sender as Label;
+
+            if (label == null) return;
+            #endregion
+
+            // If black hasnt made a move yet
+            if (BlackCurrentMove.startingLocation == null)
+            {
+                Panel panel = GetRelativePanel(label);
+                lab.Text = $"{lab.Text}\n BLACK PIECE";
+
+                BlackCurrentMove = new Move(panel.Tag.ToString());
+            }
+
+            // Black has selected their piece
+            else
+            {
+                // if piece is white, capture 
+                // if piece is black, dont allow move
+            }
+        }
+        void UnoccupiedSquare_Click(object sender, EventArgs e)
+        {
+            Label label = sender as Label;
+            if (label == null) return;
+
+            Piece piece = new Piece();
+            
+            // Calculate Moves
+
+            // Loop through all pieces and find correct Piece
+            foreach(Piece WhitePiece in WhitePieces)
+            {
+                foreach(Piece BlackPiece in BlackPieces)
                 {
-                    Panel panel = GetRelativePanel(label);
-
-                    if (panel.Tag.ToString() != CurrentMove.startingLocation)
+                    if(WhitePiece.Notation == WhiteCurrentMove.startingLocation)
                     {
-                        CurrentMove.endingLocation = panel.Tag.ToString();
-                        if (piece.Notation == CurrentMove.startingLocation)
-                        {
-                            // Search for label of ending Location
-                            piece.CreateMove(CurrentMove, FlowLayoutPanel);
-                        }
-
+                        piece = WhitePiece;
+                        WhitePossibleMoves = piece.CalculateMoves(piece.Notation, FlowLayoutPanel);
+                    }
+                    else if(BlackPiece.Notation == BlackCurrentMove.startingLocation)
+                    {
+                        piece = BlackPiece;
+                        BlackPossibleMoves = piece.CalculateMoves(piece.Notation, FlowLayoutPanel);
                     }
                 }
-                CurrentMove = new Move();
             }
+
+
+
+
+            // Get position of Label
+            // Check if move is possible
+            // call CreateMove() on piece
+            lab.Text = $"Moving Piece [{piece.Name},{piece.Notation}] to {label.Tag.ToString()}";
+
+            foreach(Move move in WhitePossibleMoves.Concat(BlackPossibleMoves))
+            {
+                if(move.endingLocation == label.Tag.ToString())
+                {
+                    piece.CreateMove(move, FlowLayoutPanel);
+                    lab.Text = "Moved Piece";
+                    break;
+                }
+            }
+
+            BlackCurrentMove = new Move();
+            WhiteCurrentMove = new Move();
+
+
+
+
+        }
+
+        private Piece? LookForPieces(string TargetNotation)
+        {
+            foreach (Piece piece in WhitePieces)
+            {
+                if (piece.Notation == TargetNotation)
+                    return piece;
+            }
+            foreach(Piece piece in BlackPieces)
+            {
+                if(piece.Notation == TargetNotation)
+                    return piece;
+            }
+
+            return null;
         }
         private Panel GetRelativePanel(Label label)
         {

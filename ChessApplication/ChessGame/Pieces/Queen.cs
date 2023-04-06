@@ -10,6 +10,7 @@ namespace ChessApplication.ChessGame.Pieces
             this.Notation = Notation;
             Name = "Queen";
             this.PiecePosition = PiecePosition;
+            this.Colour = Colour;
 
             ReadInImages();
 
@@ -18,10 +19,7 @@ namespace ChessApplication.ChessGame.Pieces
             else
                 this.PiecePosition.Image = BlackImage;
         }
-        public void CalculateMoves()
-        {
 
-        }
 
         private void ReadInImages()
         {

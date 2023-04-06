@@ -1,6 +1,5 @@
 ﻿using ChessApplication.ChessGame.Enums;
 using ChessApplication.ChessGame.Structs;
-using ChessApplication.ChessGame.Utilities;
 
 namespace ChessApplication.ChessGame.Pieces
 {
@@ -9,12 +8,20 @@ namespace ChessApplication.ChessGame.Pieces
 
         public void CreateMove(Move move, FlowLayoutPanel flow)
         {
-            squares = flow;
             RemoveOldImage();
-
             Move(move);
             ChooseImage();
 
+        }
+
+        public List<Move> CalculateMoves(string StartingLocation, FlowLayoutPanel flow)
+        {
+            squares = flow;
+            foreach (Panel panel in squares.Controls)
+            {
+                PossibleMoves.Add(new Structs.Move(StartingLocation, panel.Tag.ToString()));
+            }
+            return PossibleMoves;
         }
 
         public void Move(Move move)
@@ -46,7 +53,7 @@ namespace ChessApplication.ChessGame.Pieces
         #region Change Image Types
         private void ChooseImage()
         {
-            if (colour == Colours.White)
+            if (Colour == Colours.White)
                 ChangeWhiteImage();
             else
                 ChangeBlackImage();
@@ -82,13 +89,13 @@ namespace ChessApplication.ChessGame.Pieces
         #endregion
 
 
-        private FlowLayoutPanel squares;
+        protected FlowLayoutPanel squares;
 
         public Label PiecePosition;
         public System.Drawing.Image WhiteImage;
         public System.Drawing.Image BlackImage;
         public Piece() { Moves = new List<Move>(); PossibleMoves = new List<Move>(); }
-        public Colours colour { get; set; }
+        public Colours Colour { get; set; }
         public string Notation { get; set; }
         public List<Move> Moves { get; set; }
         public List<Move> PossibleMoves { get; set; }

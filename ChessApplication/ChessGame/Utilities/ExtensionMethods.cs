@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ChessApplication.ChessGame.Structs;
+﻿using ChessApplication.ChessGame.Structs;
 
 namespace ChessApplication.ChessGame.Utilities
 {
@@ -34,7 +29,6 @@ namespace ChessApplication.ChessGame.Utilities
             };
 
 
-
         public static Location ToLocation(this string Notation)
         {
             int y = NotationToInt[Notation[0]];
@@ -48,5 +42,6 @@ namespace ChessApplication.ChessGame.Utilities
 
             return $"{y}{location.x}";
         }
+
     }
 }

@@ -11,6 +11,7 @@ namespace ChessApplication.ChessGame.Pieces
             Name = "Bishop";
 
             this.PiecePosition = PiecePosition;
+            this.Colour = Colour;
 
             ReadInImages();
 
@@ -21,10 +22,7 @@ namespace ChessApplication.ChessGame.Pieces
                 this.PiecePosition.Image = BlackImage;
 
         }
-        public void CalculateMoves()
-        {
 
-        }
 
         private void ReadInImages()
         {

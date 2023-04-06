@@ -5,6 +5,6 @@ namespace ChessApplication.ChessGame.Interfaces
     internal interface IMoveable
     {
         void Move(Move move);
-        void CalculateMoves();
+        List<Move> CalculateMoves(string StartingLocation, FlowLayoutPanel flow);
     }
 }
