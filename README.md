@@ -1,5 +1,4 @@
 # ChessGame
+### cba to finish this
 
-## This is meant to be a proof of concept
 
-Simple Chess in Winforms
