@@ -1,4 +1,5 @@
 # ChessGame
-### cba to finish this
+
+Concept of chess in Windows Forms
 
 
